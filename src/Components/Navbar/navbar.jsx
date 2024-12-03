@@ -1,11 +1,12 @@
 import React from 'react';
 import './navbar.css';
+import logo from '../../../public/deer-hunter-logo.jpg';
 
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src="/deer-hunter-logo.jpg" alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
 
       <div className="contents">
