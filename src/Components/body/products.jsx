@@ -6,10 +6,9 @@ import sparxmesh from '../../assets/images/sparx-mesh.jpg';
 import lqdcell from '../../assets/images/puma-LQDCELL.jpg';
 import genetic_speckle from '../../assets/images/puma-genetics-speckle.jpg';
 import genetics from '../../assets/images/puma-genetics.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../../Context/CartContext';
 import Payment from '../Payment/Payment';
+import Cart from '../Cart/Cart';
 
 const Products = () => {
   const { cart, addToCart, updateQuantity, handlePaymentClick,handleBackToProducts, setIsPaymentPage, isPaymentPage, total } = useContext(CartContext);
@@ -45,62 +44,7 @@ const Products = () => {
           </div>
         </div>
       )}
-
-      <div className="cart">
-        <h2>Cart</h2>
-        {cart.length > 0 ? (
-          <table className="cart-table">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cart.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>₹{item.price}</td>
-                  <td className="quantity">
-                    <button
-                      className="quantity-btn"
-                      onClick={() => updateQuantity(item.id, -1)}
-                    >
-                      -
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button
-                      className="quantity-btn"
-                      onClick={() => updateQuantity(item.id, 1)}
-                    >
-                      +
-                    </button>
-                  </td>
-                  <td>₹{item.price * item.quantity}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <div className="empty-cart">
-            <FontAwesomeIcon icon={faCircleInfo} className="info-icon" />
-            <p>No items in the cart</p>
-          </div>
-        )}
-        <div className="cart-total01">
-          <div className="cart-total">
-          <h3>Total: </h3>
-          <h2>₹{total}</h2>
-          </div>
-          <div className="payment-btn">
-        <button onClick={handlePaymentClick}>
-          {isPaymentPage ? 'Back to Products' :  'Proceed to Payment'}
-        </button>
-      </div>
-        </div>
-      </div>
+      <Cart />
     </div>
   );
 };

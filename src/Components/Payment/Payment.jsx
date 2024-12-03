@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import './Payment.css';
 import { CartContext } from '../../Context/CartContext';
+import Cart from '../Cart/Cart';
 
 const Payment = () => {
   const {cardNumber, paymentMethod,expiryDate, handleCardNumberInput, handlePaymentMethod, handleExpiryDate} = useContext(CartContext)
 
   
   return (
+    <div className="main">
     <div className='payment-page'>
       <h2>Payment</h2>
       <form>
@@ -41,6 +43,8 @@ const Payment = () => {
       <div className="confirm-payment">
             <button>Confirm Payment</button>
           </div>
+    </div>
+    <Cart />
     </div>
   );
 };

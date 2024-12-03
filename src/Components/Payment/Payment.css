@@ -1,3 +1,7 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+}
 .payment-page {
     display: flex;
     flex-direction: column;
